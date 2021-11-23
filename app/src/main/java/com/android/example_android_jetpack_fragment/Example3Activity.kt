@@ -26,9 +26,9 @@ class Example3Activity : AppCompatActivity() {
     private fun init() {
         viewPager = findViewById(R.id.view_pager)
         val fragments = arrayListOf(
-            CommonFragment.newInstance("ViewPager\nFragment1", resources.getColor(R.color.purple_200)),
-            CommonFragment.newInstance("ViewPager\nFragment2", resources.getColor(R.color.purple_500)),
-            CommonFragment.newInstance("ViewPager\nFragment3", resources.getColor(R.color.purple_700))
+            LazyFragment.newInstance("ViewPager\nFragment1", resources.getColor(R.color.purple_200)),
+            LazyFragment.newInstance("ViewPager\nFragment2", resources.getColor(R.color.purple_500)),
+            LazyFragment.newInstance("ViewPager\nFragment3", resources.getColor(R.color.purple_700))
         )
         viewPager.adapter = PagerAdapter(supportFragmentManager, fragments)
         viewPager.currentItem = 0

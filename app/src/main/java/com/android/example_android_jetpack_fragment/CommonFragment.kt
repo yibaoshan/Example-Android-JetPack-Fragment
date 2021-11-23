@@ -32,8 +32,6 @@ class CommonFragment : Fragment() {
 
     }
 
-    /********************************Fragment-Lifecycle-Begin***************************************/
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d(TAG, "onAttach: text=" + arguments?.getString(KEY_TEXT))
@@ -41,7 +39,7 @@ class CommonFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: ")
+        Log.d(TAG, "onCreate: $this")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -97,7 +95,5 @@ class CommonFragment : Fragment() {
         super.onDetach()
         Log.d(TAG, "onDetach: ")
     }
-
-    /********************************Fragment-Lifecycle-End***************************************/
 
 }
