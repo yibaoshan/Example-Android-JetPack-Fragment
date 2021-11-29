@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Example1Activity" />
-        <activity android:name=".Example2Activity" />
-        <activity android:name=".Example3Activity" />
+        <activity android:name=".usage.activity.UsageActivity" />
+        <activity android:name=".usage.activity.UsageExample1Activity" />
+        <activity android:name=".usage.activity.UsageExample2Activity" />
+        <activity android:name=".usage.activity.UsageExample3Activity" />
+        <activity android:name=".usage.activity.UsageExample4Activity" />
+        <activity android:name=".usage.activity.UsageExample5Activity" />
+        <activity android:name=".result.activity.ResultAPIActivity" />
+        <activity android:name=".result.activity.ResultExample1Activity" />
     </application>
 
 </manifest>

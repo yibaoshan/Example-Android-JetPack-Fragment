@@ -1,13 +1,12 @@
 package com.android.example_android_jetpack_fragment
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
+import com.android.example_android_jetpack_fragment.result.activity.ResultAPIActivity
+import com.android.example_android_jetpack_fragment.usage.activity.UsageActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,15 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
         val rootView = findViewById<LinearLayout>(R.id.layout_main)
-        rootView.addView(createButtonView("XML<fragment>标签") { startActivity(Intent(this, Example1Activity::class.java)) })
-        rootView.addView(createButtonView("ViewGroup") { startActivity(Intent(this, Example2Activity::class.java)) })
-        rootView.addView(createButtonView("ViewPager") { startActivity(Intent(this, Example3Activity::class.java)) })
+        rootView.addView(createButtonView("Fragment使用") { startActivity(Intent(this, UsageActivity::class.java)) })
+        rootView.addView(createButtonView("Fragment通信") { startActivity(Intent(this, ResultAPIActivity::class.java)) })
     }
 
-    private fun createButtonView(text: String, onClickListener: View.OnClickListener): Button {
-        val button = Button(this)
-        button.text = text
-        button.setOnClickListener(onClickListener)
-        return button
-    }
 }

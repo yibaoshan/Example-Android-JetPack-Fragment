@@ -1,4 +1,4 @@
-package com.android.example_android_jetpack_fragment
+package com.android.example_android_jetpack_fragment.usage.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.example_android_jetpack_fragment.R
 
 /**
  * Created by yibaoshan@foxmail.com on 2021/11/22
@@ -16,7 +17,7 @@ class CommonFragment : Fragment() {
 
     companion object {
 
-        private const val TAG = "CommonFragment"
+        private var TAG = "CommonFragment"
 
         private const val KEY_TEXT = "KEY_TEXT"
         private const val KEY_COLOR = "KEY_COLOR"
@@ -34,12 +35,14 @@ class CommonFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(TAG, "onAttach: text=" + arguments?.getString(KEY_TEXT))
+        val text = arguments?.getString(KEY_TEXT)
+        if (text?.isNotEmpty() == true) TAG = "${text}Fragment"
+        Log.d(TAG, "onAttach: ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate: $this")
+        Log.d(TAG, "onCreate: ")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

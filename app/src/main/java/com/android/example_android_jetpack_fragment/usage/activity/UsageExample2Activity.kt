@@ -1,16 +1,17 @@
-package com.android.example_android_jetpack_fragment
+package com.android.example_android_jetpack_fragment.usage.activity
 
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.android.example_android_jetpack_fragment.R
+import com.android.example_android_jetpack_fragment.usage.fragment.CommonFragment
 
 /**
  * Created by yibaoshan@foxmail.com on 2021/11/22
  * Description : 通过ViewGroup+FragmentManager
  */
-class Example2Activity : AppCompatActivity() {
+class UsageExample2Activity : AppCompatActivity() {
 
     private lateinit var leftFragment: Fragment
     private lateinit var rightFragment: Fragment
@@ -18,8 +19,8 @@ class Example2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = "$title-ViewGroup"
-        setContentView(R.layout.activity_example2)
+        title = "FM(add/show/hide)"
+        setContentView(R.layout.activity_usage_example2)
         init()
     }
 
@@ -29,18 +30,21 @@ class Example2Activity : AppCompatActivity() {
         motionFragment = CommonFragment.newInstance("ViewGroup\nFragment3", resources.getColor(R.color.purple_700))
 
         supportFragmentManager.beginTransaction().add(R.id.container, leftFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.container, rightFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.container, motionFragment).commit()
+
     }
 
     fun onViewGroup1Click(view: View?) {
-        supportFragmentManager.beginTransaction().replace(R.id.container, leftFragment).commit()
+        supportFragmentManager.beginTransaction().hide(rightFragment).hide(motionFragment).show(leftFragment).commit()
     }
 
     fun onViewGroup2Click(view: View?) {
-        supportFragmentManager.beginTransaction().replace(R.id.container, rightFragment).commit()
+        supportFragmentManager.beginTransaction().hide(leftFragment).hide(motionFragment).show(rightFragment).commit()
     }
 
     fun onViewGroup3Click(view: View?) {
-        supportFragmentManager.beginTransaction().replace(R.id.container, motionFragment).commit()
+        supportFragmentManager.beginTransaction().hide(leftFragment).hide(rightFragment).show(motionFragment).commit()
     }
 
 }

@@ -1,4 +1,4 @@
-package com.android.example_android_jetpack_fragment
+package com.android.example_android_jetpack_fragment.usage.activity
 
 import android.os.Bundle
 import android.view.View
@@ -7,19 +7,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.android.example_android_jetpack_fragment.R
+import com.android.example_android_jetpack_fragment.usage.fragment.LazyFragment
 
 /**
  * Created by yibaoshan@foxmail.com on 2021/11/22
  * Description : ViewPager
  */
-class Example3Activity : AppCompatActivity() {
+class UsageExample4Activity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = "$title-ViewPager"
-        setContentView(R.layout.activity_example3)
+        title = "ViewPager"
+        setContentView(R.layout.activity_usage_example3)
         init()
     }
 

@@ -1,4 +1,4 @@
-package com.android.example_android_jetpack_fragment
+package com.android.example_android_jetpack_fragment.usage.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.example_android_jetpack_fragment.R
 
 /**
  * Created by yibaoshan@foxmail.com on 2021/11/22
@@ -63,7 +64,6 @@ class LazyFragment : Fragment() {
     }
 
     private fun lazyLoad() {
-        //这里做个小优化：把判断数据是否加载过放在首位
         if (dataLoaded || !userVisibleHint || !viewLoaded) return
         loadData()
     }
