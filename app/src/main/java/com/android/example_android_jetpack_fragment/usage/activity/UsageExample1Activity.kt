@@ -1,6 +1,7 @@
 package com.android.example_android_jetpack_fragment.usage.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.example_android_jetpack_fragment.R
 
@@ -15,6 +16,9 @@ class UsageExample1Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         title = "使用方式-XML"
         setContentView(R.layout.activity_usage_example1)
+        val findFragmentById = supportFragmentManager.findFragmentById(R.id.example1_common_fragment) ?: return
+        val findFragmentByTag = supportFragmentManager.findFragmentByTag("example1_common_fragment") ?: return
+        Toast.makeText(this, findFragmentById.javaClass.simpleName + findFragmentByTag.javaClass.simpleName, Toast.LENGTH_SHORT).show()
     }
 
 }

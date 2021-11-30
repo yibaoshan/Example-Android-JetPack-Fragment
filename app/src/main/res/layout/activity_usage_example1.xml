@@ -5,6 +5,7 @@
 
     <fragment
             android:id="@+id/example1_common_fragment"
+            android:tag="example1_common_fragment"
             android:name="com.android.example_android_jetpack_fragment.usage.fragment.CommonFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
