@@ -29,7 +29,6 @@ class ResultExample2Fragment : Fragment() {
         btnSend.setOnClickListener {
             val random = Random().nextInt(99).toString()
             viewModel.resultLiveData.value = random
-            btnSend.text = "Sent：$random"
         }
     }
 
