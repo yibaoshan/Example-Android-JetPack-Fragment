@@ -24,6 +24,7 @@
         <activity android:name=".usage.activity.UsageExample5Activity" />
         <activity android:name=".result.activity.ResultAPIActivity" />
         <activity android:name=".result.activity.ResultExample1Activity" />
+        <activity android:name=".result.activity.ResultExample2Activity" />
     </application>
 
 </manifest>

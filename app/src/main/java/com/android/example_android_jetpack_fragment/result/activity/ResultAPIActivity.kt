@@ -18,6 +18,7 @@ class ResultAPIActivity : BaseActivity() {
     private fun init() {
         val rootView = findViewById<LinearLayout>(R.id.layout_main)
         rootView.addView(createButtonView("接口&方法调用") { startActivity(Intent(this, ResultExample1Activity::class.java)) })
+        rootView.addView(createButtonView("ViewModel") { startActivity(Intent(this, ResultExample2Activity::class.java)) })
     }
 
 }

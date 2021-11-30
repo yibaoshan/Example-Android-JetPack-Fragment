@@ -11,11 +11,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.android.example_android_jetpack_fragment.R
 import java.lang.ref.WeakReference
+import java.util.*
 
 class ResultExample1Fragment : Fragment() {
 
     interface OnCallFatherListener {
-        fun talk(s: String): String
+        fun callFatherActivity(s: String): String
     }
 
     var weakResListener: WeakReference<OnCallFatherListener>? = null
@@ -32,12 +33,17 @@ class ResultExample1Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.result_example1_fragment_btn_random).setOnClickListener {
+            val random = Random().nextInt(99).toString()
+            view.findViewById<EditText>(R.id.result_example1_fragment_edt_to_activity)?.setText(random)
+            weakResListener?.get()?.callFatherActivity(random)
+        }
         view.findViewById<Button>(R.id.result_example1_fragment_btn_send).setOnClickListener {
-            weakResListener?.get()?.talk(view.findViewById<EditText>(R.id.result_example1_fragment_edt_to_activity)?.text?.toString() ?: "")
+            weakResListener?.get()?.callFatherActivity(view.findViewById<EditText>(R.id.result_example1_fragment_edt_to_activity)?.text?.toString() ?: "")
         }
     }
 
-    fun activityCallFragment(str: String) {
+    fun callChildFragment(str: String) {
         view?.findViewById<TextView>(R.id.result_example1_fragment_tv_content)?.text = str
     }
 
